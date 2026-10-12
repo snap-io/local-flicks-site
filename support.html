@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Help &amp; Support · LocalFlix</title>
+  <meta name="description" content="How to use LocalFlix: adding folders, naming files, posters from TMDB, the player, reconnecting folders, linking video files, backup, Premium and troubleshooting.">
+  <meta name="theme-color" content="#0b0b0f">
+  <link rel="canonical" href="https://local-flicks.com/support.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/mark.png" alt="" width="30" height="30">LocalFlix</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="btn" href="index.html#download"><svg class="icon"><use href="#i-download"/></svg>Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap doc-hero">
+    <span class="eyebrow">Help centre</span>
+    <h1>Help &amp; Support</h1>
+    <p class="doc-meta">Everything about using LocalFlix, from your first folder to fixing a video that won't play. Can't find an answer? <a href="#contact">Contact us</a>.</p>
+  </div>
+
+  <div class="wrap doc-layout">
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#what">What is LocalFlix?</a></li>
+        <li><a href="#start">Getting started</a></li>
+        <li><a href="#naming">Naming your files</a></li>
+        <li><a href="#tour">A tour of the screens</a></li>
+        <li><a href="#watching">Watching</a></li>
+        <li><a href="#watched">Watched status and selecting episodes</a></li>
+        <li><a href="#tmdb">Posters and details (TMDB)</a></li>
+        <li><a href="#organise">Organising titles</a></li>
+        <li><a href="#folders">Folders and availability</a></li>
+        <li><a href="#reconnect">Reconnecting a folder</a></li>
+        <li><a href="#link">Linking a video file yourself</a></li>
+        <li><a href="#remove">Removing things</a></li>
+        <li><a href="#wontplay">When a video won't play</a></li>
+        <li><a href="#backup">Backup and restore</a></li>
+        <li><a href="#premium">Free and Premium</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </nav>
+
+    <article class="doc">
+
+      <section id="what">
+        <h2>What is LocalFlix?</h2>
+        <p>LocalFlix turns the video files already on your Android phone into a library that looks and works like a streaming service: movies and shows with posters, seasons and episodes in order, progress bars, and a Continue Watching row that resumes exactly where you stopped.</p>
+        <p>LocalFlix doesn't stream or download anything. It reads the folders and files you choose, plays them where they are, and never moves, copies or deletes them. There's no account, and the library and player work offline.</p>
+      </section>
+
+      <section id="start">
+        <h2>Getting started</h2>
+        <ol>
+          <li><strong>Add your videos.</strong> On the Library screen, tap <strong>+</strong> (Add to library) and choose:
+            <ul>
+              <li><strong>Add folder</strong> (recommended): pick a folder and LocalFlix adds every video inside it, including all subfolders. LocalFlix keeps checking added folders, so new episodes, moved files and missing files are handled for you.</li>
+              <li><strong>Add video files</strong>: pick individual files. Good for one-offs. Because these aren't part of a folder, LocalFlix can't find them again by itself if you move them later.</li>
+            </ul>
+          </li>
+          <li><strong>Review what LocalFlix found.</strong> The <strong>Confirm import</strong> screen shows the shows and movies it recognised. Untick anything you don't want, then tap <strong>Add</strong>. Names LocalFlix wasn't sure about are flagged so you can check them.</li>
+          <li><strong>Optional: add a TMDB key</strong> for posters, descriptions and cast. See <a href="#tmdb">Posters and details</a>.</li>
+          <li><strong>Press play.</strong> LocalFlix remembers where you stop in every video.</li>
+        </ol>
+        <div class="short" style="margin-top:16px"><p><strong>Tip:</strong> Put each show in its own folder inside one main folder (for example <code>Videos/TV/Marshalls/</code>) and add the main folder once. Everything you download into it later can be picked up with <strong>Rescan library folders</strong>.</p></div>
+      </section>
+
+      <section id="naming">
+        <h2>Naming your files</h2>
+        <p>LocalFlix works out the show, season and episode from each file name, and cleans away release tags such as resolution, codec and group names. These episode patterns are recognised:</p>
+        <ul>
+          <li><code>Marshalls S01E05</code>, <code>S1E5</code>, <code>S01.E05</code>, <code>S01_E05</code>, <code>S01 E05</code></li>
+          <li>Multi-episode files: <code>S01E01E02</code>, <code>S01E01-E02</code></li>
+          <li><code>Marshalls 3x07</code></li>
+          <li><code>Marshalls Season 1 Episode 5</code></li>
+          <li>Date-stamped episodes, for daily or weekly shows</li>
+        </ul>
+        <p>For movies, include the year: <code>Heat (1995).mp4</code> or <code>Heat.1995.1080p.mkv</code>.</p>
+        <p>LocalFlix deliberately doesn't guess from bare numbers such as <code>05.mkv</code> or absolute anime numbering, because guesses like that file episodes in the wrong place. A file it can't place becomes its own flagged title, which you can fix with <a href="#organise">Organise</a> or by renaming the file and rescanning.</p>
+        <p>Supported file types: <strong>MP4, MKV, AVI, MOV, M4V, WebM and TS</strong>.</p>
+      </section>
+
+      <section id="tour">
+        <h2>A tour of the screens</h2>
+        <h3>Library</h3>
+        <ul>
+          <li><strong>Continue Watching</strong>: what you're part-way through, newest first. Tap to resume.</li>
+          <li><strong>Recently Added</strong>: your newest titles.</li>
+          <li><strong>Filters</strong>: All, Movies or Shows; then optionally Unwatched, In progress, Completed or Has unavailable files; and sort by Newest, Oldest or Alphabetical. Your choice is remembered.</li>
+          <li><strong>Select titles</strong>: press and hold a poster to select several titles, then remove them from your library in one go.</li>
+          <li>Titles beyond the free limit show a lock. See <a href="#premium">Free and Premium</a>.</li>
+        </ul>
+        <h3>Search</h3>
+        <p>Type at least three letters to search by title, cast member, director, studio or year.</p>
+        <h3>Show page</h3>
+        <ul>
+          <li>The big button reads <strong>Play</strong>, or <strong>Resume S01E03</strong> when you're part-way through, with a progress bar for the whole show.</li>
+          <li>Seasons can be collapsed and expanded by tapping their headers.</li>
+          <li>Each episode shows how much is left, <strong>Watched</strong>, <strong>Unavailable</strong> (file can't be found), <strong>Linked manually</strong>, or a lock for Premium.</li>
+          <li>The <strong>⋮ at the top</strong> manages the whole show: Match with TMDB, Edit details, Organise show, Remove unavailable episodes, Remove show from library.</li>
+          <li>The <strong>⋮ on an episode</strong> manages that one episode: Mark as watched or unwatched, Link video file… (when unavailable), Use folder's copy (when linked manually), Move to another title…, Remove from library.</li>
+        </ul>
+        <h3>Movie page</h3>
+        <p>A movie has one video file, so its ⋮ menu combines both: Match with TMDB, Edit details, Organise movie, Mark as watched, Link video file… (when unavailable), Use folder's copy (when linked manually) and Remove movie from library.</p>
+        <h3>Settings</h3>
+        <ul>
+          <li><strong>Metadata (TMDB)</strong>: add your key, and <strong>Match all with TMDB</strong>.</li>
+          <li><strong>Library</strong>: Clean up titles, Rescan library folders, Clear library; folders LocalFlix can't open (with Reconnect); Remove unavailable episodes and movies.</li>
+          <li><strong>Storage</strong>: counts of titles, files and unavailable files.</li>
+          <li><strong>Backup &amp; restore</strong>: Back up library, Restore from backup.</li>
+          <li><strong>Premium</strong>: Unlock Premium, Restore purchase.</li>
+        </ul>
+      </section>
+
+      <section id="watching">
+        <h2>Watching</h2>
+        <p>Tap anywhere on the video to show or hide the controls, which hide themselves after a few seconds.</p>
+        <ul>
+          <li><strong>Volume</strong>: drag up or down on the left half of the screen.</li>
+          <li><strong>Brightness</strong>: drag up or down on the right half. This changes only the player, not your phone's brightness setting, and goes back to normal when you leave.</li>
+          <li><strong>Skip</strong>: double-tap the left or right side to jump 10 seconds, or use the back 10 and forward 15 buttons.</li>
+          <li><strong>Scrub</strong>: drag the progress bar.</li>
+          <li><strong>Rotate</strong>: the rotate button switches between portrait and landscape.</li>
+          <li><strong>Next episode</strong>: near the end of an episode, an 8-second countdown starts the next one. Tap <strong>Play now</strong> to start it straight away, or cancel. Autoplay only continues when the next episode's file is actually there.</li>
+        </ul>
+        <p>Your position is saved as you watch and when you leave, so the next time you open the video it resumes where you stopped. A video counts as watched once you reach 95% of it.</p>
+      </section>
+
+      <section id="watched">
+        <h2>Watched status and selecting episodes</h2>
+        <ul>
+          <li>Mark a single episode from its ⋮ menu, or a movie from its page's ⋮ menu.</li>
+          <li><strong>Select several episodes</strong>: press and hold an episode. While selecting, the show's own ⋮ is hidden and the selection bar holds the actions: <strong>Mark as watched</strong>, <strong>Mark as unwatched</strong>, <strong>Move to another title…</strong> and <strong>Remove selected episodes</strong>. Tap Cancel to stop selecting.</li>
+          <li>After marking several episodes, or after moving or merging titles, an <strong>Undo</strong> bar appears briefly. Tap it to reverse the change.</li>
+        </ul>
+      </section>
+
+      <section id="tmdb">
+        <h2>Posters and details (TMDB)</h2>
+        <p>LocalFlix can fetch posters, backdrops, descriptions and cast from The Movie Database (TMDB). This needs your own TMDB API key, which is free. Without one, everything else still works.</p>
+        <h3>Getting a key</h3>
+        <ol>
+          <li>Open <strong>Settings → Metadata (TMDB)</strong> and tap <strong>Open TMDB</strong>, or go to themoviedb.org.</li>
+          <li>Sign in, or create a free TMDB account.</li>
+          <li>Open your account menu → <strong>Settings → API</strong>, request a new key and choose <strong>Developer</strong>.</li>
+          <li>The form asks for an app website. It isn't checked, so anything works (even <code>http://localhost</code>), and the key is issued instantly.</li>
+          <li>Copy the <strong>API Key (v3 auth)</strong> value, paste it into LocalFlix and tap <strong>Save</strong>.</li>
+        </ol>
+        <h3>Matching</h3>
+        <ul>
+          <li><strong>Settings → Metadata (TMDB) → Match all with TMDB</strong> looks up every title that doesn't have artwork yet.</li>
+          <li>For one title, use <strong>Match with TMDB</strong> (or <strong>Re-match with TMDB</strong>) in its ⋮ menu. LocalFlix shows what it found and asks before applying it.</li>
+          <li>Artwork is saved on your phone, so it keeps showing offline.</li>
+        </ul>
+        <h3>Editing details yourself</h3>
+        <p>Choose <strong>Edit details</strong> in a title's ⋮ menu to change its name or description, or pick your own poster and backdrop images. Your edits are kept.</p>
+      </section>
+
+      <section id="organise">
+        <h2>Organising titles</h2>
+        <p>If LocalFlix grouped something wrongly, open the title's ⋮ menu → <strong>Organise show</strong> (or <strong>Organise movie</strong>):</p>
+        <ul>
+          <li><strong>Change to show</strong> or <strong>Change to movie</strong>: fix the type. A show can only become a movie if it has a single video file.</li>
+          <li><strong>Move episodes</strong>: pick episodes and move them to another show, or to a new title you name.</li>
+          <li><strong>Move to another title</strong> (movies): move the movie's video file into another title.</li>
+          <li><strong>Merge with another title</strong>: combine two titles that are really the same show.</li>
+          <li><strong>Re-match details</strong>: search TMDB again for the right match.</li>
+        </ul>
+        <p>Moves and merges can be reversed with <strong>Undo</strong> straight afterwards. Organising never touches your video files.</p>
+      </section>
+
+      <section id="folders">
+        <h2>Folders and availability</h2>
+        <p>LocalFlix keeps your library in step with your folders in two ways:</p>
+        <ul>
+          <li><strong>Automatically</strong>, whenever you open the app: videos that have disappeared are marked Unavailable, and videos that come back become available again. This never adds new videos.</li>
+          <li><strong>Settings → Library → Rescan library folders</strong>: does the same, and also adds new videos it finds in your folders, and picks up files that were moved to another place within the same folder.</li>
+        </ul>
+        <h3>Unavailable videos</h3>
+        <p>An Unavailable video's file can't be found right now: it may have been moved, renamed or deleted, or the storage it was on (such as an SD card) is removed. It stays in your library, greyed out, with its watch history. If the file comes back, it plays again. If it's gone for good, you can <a href="#link">link it to the right file</a> or <a href="#remove">remove it</a>.</p>
+        <h3>"Can't open folder"</h3>
+        <p>Sometimes the problem is the whole folder: it was moved or renamed, its storage was removed, or Android withdrew LocalFlix's access. Then the show page shows a banner, <strong>Can't open "folder name"</strong>, and LocalFlix changes nothing in your library until it can read the folder again. If access comes back by itself (for example, you reinsert the SD card), the banner clears on the next check. Otherwise, <a href="#reconnect">reconnect the folder</a>.</p>
+      </section>
+
+      <section id="reconnect">
+        <h2>Reconnecting a folder</h2>
+        <ol>
+          <li>Tap <strong>Reconnect folder</strong> on the banner, or go to <strong>Settings → Library</strong>, where every folder LocalFlix can't open is listed with its own Reconnect button.</li>
+          <li>Pick the folder's current location. If it moved, pick where it is now.</li>
+        </ol>
+        <p>One folder can hold several shows and movies, so reconnecting it may also restore other titles. To keep your library safe, LocalFlix only accepts a folder that accounts for everything that came from the original:</p>
+        <ul>
+          <li><strong>"Pick the original folder"</strong>: you picked a folder <em>inside</em> the original, which doesn't contain all its videos. Pick the original folder.</li>
+          <li><strong>"Pick the folder that holds all of them"</strong>: the folder you picked is missing some videos that came from the original, often because you picked one show's folder when several shows were added together. Pick the main folder you originally added.</li>
+        </ul>
+        <p>When these messages appear, nothing in your library was changed.</p>
+      </section>
+
+      <section id="link">
+        <h2>Linking a video file yourself</h2>
+        <p>If LocalFlix can't find a video on its own, for example a hand-picked file that you moved, link it yourself:</p>
+        <ol>
+          <li>Open the Unavailable episode's ⋮ menu (or the movie's ⋮ menu) and choose <strong>Link video file…</strong></li>
+          <li>Pick the right file. The episode keeps its watch history and shows <strong>Linked manually</strong>.</li>
+        </ol>
+        <p>Folder scans never change a manually linked file, so your choice sticks. If you later want the folder to manage it again, choose <strong>Use folder's copy</strong> from the same menu. LocalFlix first checks the folder, shows you exactly which file it found, and only switches after you confirm. If anything doesn't check out, your manual link is kept.</p>
+      </section>
+
+      <section id="remove">
+        <h2>Removing things</h2>
+        <p><strong>Removing something from LocalFlix never deletes the video file from your phone.</strong> To delete actual files, use your phone's file manager.</p>
+        <ul>
+          <li><strong>One episode</strong>: episode ⋮ → Remove from library.</li>
+          <li><strong>Several episodes</strong>: press and hold to select them → Remove selected episodes.</li>
+          <li><strong>A whole show or movie</strong>: the ⋮ at the top → Remove show from library or Remove movie from library.</li>
+          <li><strong>Several titles</strong>: press and hold posters on the Library screen to select them, then remove.</li>
+          <li><strong>Unavailable episodes of one show</strong>: show ⋮ → Remove unavailable episodes.</li>
+          <li><strong>All unavailable episodes and movies</strong>: Settings → Library → Remove unavailable episodes and movies.</li>
+          <li><strong>Everything</strong>: Settings → Library → Clear library removes every title, episode and watch record. You'll be asked to confirm.</li>
+        </ul>
+        <p>Removing an entry also removes its watch history. If the video comes back later, adding its folder again adds it as a new entry.</p>
+      </section>
+
+      <section id="wontplay">
+        <h2>When a video won't play</h2>
+        <p>If you see <strong>Can't play this video</strong>, the cause is usually one of two things:</p>
+        <ul>
+          <li><strong>Your phone can't decode the format.</strong> Playback uses your phone's built-in video decoders, and some files (certain audio tracks, 10-bit or newer video formats) aren't supported on every phone. Tap <strong>Open in another player</strong> and choose an app such as VLC or MX Player. LocalFlix gives that app permission to read just that one file.</li>
+          <li><strong>The file can't be reached right now.</strong> If another player can't open it either, the file may have been moved or deleted, or its folder may be unavailable. Go back to the title to see whether it's Unavailable, then <a href="#reconnect">reconnect</a> or <a href="#link">link</a> it.</li>
+        </ul>
+        <p>A playback error never marks your video Unavailable or changes its progress.</p>
+      </section>
+
+      <section id="backup">
+        <h2>Backup and restore</h2>
+        <ul>
+          <li><strong>Settings → Backup &amp; restore → Back up library</strong> saves a backup file to a folder you choose. It contains your library and watch history, but not the videos themselves or your TMDB key.</li>
+          <li><strong>Restore from backup</strong> replaces your current library with the one in the backup file. You'll be asked to confirm.</li>
+        </ul>
+        <p>The videos need to be on the phone for the restored library to play them. If you restore on a different phone, or your folders have moved, LocalFlix may ask you to <a href="#reconnect">reconnect your folders</a>. The backup file isn't encrypted, so keep it somewhere private.</p>
+      </section>
+
+      <section id="premium">
+        <h2>Free and Premium</h2>
+        <ul>
+          <li><strong>Free</strong>: every feature, for a library of up to <strong>10 videos</strong>.</li>
+          <li><strong>Premium</strong>: a one-time purchase through Google Play that removes the limit. It isn't a subscription.</li>
+          <li>If adding a folder would take a free library past 10 videos, nothing is added and LocalFlix offers Premium. It doesn't add part of the folder.</li>
+          <li>If your library is ever over the limit without Premium, nothing is deleted: the extra videos stay visible with a lock until you unlock Premium.</li>
+        </ul>
+        <h3>Restoring your purchase</h3>
+        <p>Reinstalled LocalFlix or moved to a new phone? Make sure you're signed in to Google Play with the account you bought Premium on, then go to <strong>Settings → Premium → Restore purchase</strong>.</p>
+        <p>Refunds are handled by Google Play under its refund policy.</p>
+      </section>
+
+      <section id="privacy">
+        <h2>Privacy</h2>
+        <p>LocalFlix collects no personal data. There's no account, no analytics, no ads and no tracking. Your library, watch history and video files stay on your phone. The app only goes online to fetch artwork from TMDB (if you've added a key) and to handle a Premium purchase through Google Play. Read the full <a href="privacy.html">privacy policy</a>.</p>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently asked questions</h2>
+        <h3>An episode is in the wrong show or season. How do I fix it?</h3>
+        <p>Use <strong>Move to another title…</strong> from the episode's ⋮ menu, or <strong>Organise show → Move episodes</strong> for several at once. If the name was misread, renaming the file using a pattern from <a href="#naming">Naming your files</a> and rescanning also works.</p>
+        <h3>I downloaded new episodes but they don't appear.</h3>
+        <p>New videos are only added when you ask: go to <strong>Settings → Library → Rescan library folders</strong>. Make sure they're inside a folder you've already added.</p>
+        <h3>Everything from one folder suddenly shows as unavailable.</h3>
+        <p>The folder was probably moved or renamed, or its storage was removed. Look for the <strong>Can't open</strong> banner and use <strong>Reconnect folder</strong>. See <a href="#reconnect">Reconnecting a folder</a>.</p>
+        <h3>Reconnect says "Pick the folder that holds all of them".</h3>
+        <p>You picked a folder that's missing some of the videos that came from the original folder. Pick the main folder you first added, the one that contains all of those shows and movies.</p>
+        <h3>Why isn't there a poster?</h3>
+        <p>Posters come from TMDB and need a TMDB key. Add one in <strong>Settings → Metadata (TMDB)</strong>, then run <strong>Match all with TMDB</strong>. If the wrong poster appears, use <strong>Re-match with TMDB</strong> or <strong>Edit details</strong>.</p>
+        <h3>A video plays in another app but not in LocalFlix.</h3>
+        <p>Your phone's built-in decoders don't support that file. Use <strong>Open in another player</strong> from the error screen.</p>
+        <h3>Does removing a title delete my files?</h3>
+        <p>Never. LocalFlix only removes the entry from your library. Use your file manager to delete actual files.</p>
+        <h3>What does "Linked manually" mean?</h3>
+        <p>You chose that episode's video file yourself with <strong>Link video file…</strong>, so folder scans leave it alone. Use <strong>Use folder's copy</strong> to hand it back to the folder.</p>
+        <h3>My SD card was out and everything went grey.</h3>
+        <p>Reinsert the card and open LocalFlix. Videos that are back become available again automatically, with their history intact.</p>
+        <h3>Premium isn't showing after reinstalling.</h3>
+        <p>Check you're signed in to the same Google account, then use <strong>Settings → Premium → Restore purchase</strong>.</p>
+        <h3>Does LocalFlix work offline?</h3>
+        <p>Yes. Your library and the player work without internet. Only TMDB lookups and Google Play purchases need a connection.</p>
+        <h3>Is there an iPhone version?</h3>
+        <p>Not yet. LocalFlix is on Android first, and an iPhone version is planned.</p>
+        <h3>How do I start over?</h3>
+        <p><strong>Settings → Library → Clear library</strong> removes everything from the app. Your video files stay on your phone.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact us</h2>
+        <p>Email <a href="mailto:snap.appdev@proton.me">snap.appdev@proton.me</a>.</p>
+        <p>To help us help you quickly, please include:</p>
+        <ul>
+          <li>Your phone model and Android version.</li>
+          <li>What you were doing, what you expected and what happened instead.</li>
+          <li>The exact wording of any message, or a screenshot.</li>
+          <li>For file or folder problems: where your videos are stored (phone storage or SD card) and an example file name.</li>
+        </ul>
+        <p>Please don't send us your video files or your TMDB key.</p>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><img src="assets/img/mark.png" alt="" width="30" height="30">LocalFlix</a>
+        <p>Your own videos, organised like a streaming service. Offline, private, yours.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#folders">Folders</a></li>
+          <li><a href="index.html#player">Player</a></li>
+          <li><a href="index.html#pricing">Free &amp; Premium</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get the app</h4>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.localflix.app">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      <p>&copy; 2026 LocalFlix. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
