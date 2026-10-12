@@ -288,6 +288,9 @@ section[id], [id].anchor { scroll-margin-top: calc(var(--header-h) + 12px); }
 .doc p, .doc li { color: var(--muted); }
 .doc p + p { margin-top: 12px; }
 .doc ul { padding-left: 1.2em; margin: 12px 0 0; display: grid; gap: 8px; }
+.doc ol { padding-left: 1.4em; margin: 12px 0 0; display: grid; gap: 10px; }
+.doc li > ul { margin-top: 10px; }
+.doc ul + p, .doc ol + p, .doc .short + p { margin-top: 14px; }
 .doc strong { color: var(--text); }
 .doc code { font-family: var(--mono); font-size: 0.85em; color: var(--text); background: var(--surface-2); border-radius: 6px; padding: 1px 6px; }
 .short { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 8px; }
