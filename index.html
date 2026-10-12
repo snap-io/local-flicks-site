@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LocalFlix: your videos, finally a library</title>
+  <meta name="description" content="LocalFlix turns the video files already on your Android phone into a proper library of movies and shows, with posters, seasons, progress and resume. Offline. No account.">
+  <meta name="theme-color" content="#0b0b0f">
+  <link rel="canonical" href="https://local-flicks.com/">
+
+  <!-- Social preview. Placeholder: create assets/img/og-image.png at 1200 × 630 px. -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://local-flicks.com/">
+  <meta property="og:title" content="LocalFlix: your videos, finally a library">
+  <meta property="og:description" content="Posters, seasons, progress and resume for the videos already on your phone. Offline. No account.">
+  <meta property="og:image" content="https://local-flicks.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body id="top">
+
+<!-- Icon sprite (inline: no icon font or CDN, so the site makes no third-party requests). -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 3l4 4 4-4"/></symbol>
+  <symbol id="i-poster" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9.5" cy="9" r="2"/><path d="M20 16l-5-5-11 10"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-backup" viewBox="0 0 24 24"><path d="M3 4h18v4H3z"/><path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M10 13h4"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M19 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 12.6a10 10 0 0 1 4.8-2.4"/><path d="M14.2 10.2A10 10 0 0 1 19 12.6"/><path d="M2 8.8a15 15 0 0 1 4.3-2.6"/><path d="M10.4 5.1A15 15 0 0 1 22 8.8"/></symbol>
+  <symbol id="i-noaccount" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17 8l4 4M21 8l-4 4"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 6.1A9.6 9.6 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-3 3.5"/><path d="M6.6 6.6C4.2 8.3 3 12 3 12s4 6 9 6a9 9 0 0 0 4.4-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+  <symbol id="i-seek" viewBox="0 0 24 24"><path d="M11 6l-6 6 6 6"/><path d="M19 6l-6 6 6 6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 5l10 7-10 7z"/><path d="M19 5v14"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><rect x="8" y="3" width="10" height="16" rx="2"/><path d="M4 13a8 8 0 0 0 5 7"/><path d="M4 17v-4h4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.6-1.8"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/img/mark.png" alt="" width="30" height="30">LocalFlix</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#folders">Folders</a>
+      <a href="#player">Player</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Free &amp; Premium</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#download"><svg class="icon"><use href="#i-download"/></svg>Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Your videos, your library</span>
+        <h1 id="hero-title">You already own the films. <span class="ribbon-text">Now they look like it.</span></h1>
+        <p class="lede">LocalFlix turns the video files already on your Android phone into a proper library of movies and shows, with posters, seasons, progress and resume. Nothing to stream, nothing to sign up for. It just plays what you have.</p>
+        <div class="cta-row">
+          <!-- Replace with Google's official "Get it on Google Play" badge once the listing is live. -->
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.localflix.app"><svg class="icon"><use href="#i-download"/></svg>Get it on Google Play</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <p class="microcopy">Free to download. No account. Works offline. Android.</p>
+        <div class="chips" aria-label="Highlights">
+          <span class="chip"><svg class="icon"><use href="#i-play"/></svg>Resume where you left off</span>
+          <span class="chip"><svg class="icon"><use href="#i-tv"/></svg>Seasons sorted for you</span>
+          <span class="chip"><svg class="icon"><use href="#i-offline"/></svg>No internet needed to watch</span>
+        </div>
+      </div>
+      <figure class="ph ph-hero">
+        <figcaption><strong>HERO IMAGE · 1600 × 1200 px</strong>Two or three phones: library grid, show page, player.<br><code>assets/img/hero.png</code></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM -->
+  <section class="section-alt" aria-labelledby="problem-title">
+    <div class="wrap problem">
+      <div>
+        <span class="eyebrow">The problem</span>
+        <h2 id="problem-title">A folder called Downloads is not a library.</h2>
+        <ul class="pains">
+          <li><svg class="icon"><use href="#i-alert"/></svg><span>Your episodes are named like a ransom note, and the gallery app mixes them in with your screenshots.</span></li>
+          <li><svg class="icon"><use href="#i-alert"/></svg><span>You can never remember which episode you were on, or where in it.</span></li>
+          <li><svg class="icon"><use href="#i-alert"/></svg><span>Move a folder or swap an SD card and most players lose track of everything.</span></li>
+          <li><svg class="icon"><use href="#i-alert"/></svg><span>Streaming apps want a monthly fee to show you a nice poster. These files are already yours.</span></li>
+        </ul>
+      </div>
+      <div class="rename" aria-label="Example: how LocalFlix tidies a filename">
+        <div class="rename-row">
+          <span class="rename-label">On your phone</span>
+          <span class="filename">Marshalls.S01E03.1080p.WEB.H264-GROUP.mkv</span>
+        </div>
+        <div class="rename-row">
+          <span class="rename-label">In LocalFlix</span>
+          <div class="tidy"><b>Marshalls</b><span>S01E03</span></div>
+        </div>
+        <hr>
+        <div class="rename-row">
+          <span class="rename-label">On your phone</span>
+          <span class="filename">Heat.1995.REMASTERED.BluRay.x264.mp4</span>
+        </div>
+        <div class="rename-row">
+          <span class="rename-label">In LocalFlix</span>
+          <div class="tidy"><b>Heat</b><span>1995 · Movie</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURES -->
+  <section id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Features</span>
+        <h2 id="features-title">Everything a streaming app does, for the files you own.</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-layers"/></svg></div>
+          <h3>Movies and shows, sorted for you</h3>
+          <p>LocalFlix reads your filenames, recognises seasons and episodes (and date-stamped episodes too), cleans up the release junk and groups everything into titles.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-poster"/></svg></div>
+          <h3>Posters, cast and details</h3>
+          <p>Add a free TMDB key and LocalFlix fetches posters, backdrops, descriptions and cast. Artwork is saved on your phone, so it still shows offline. Prefer your own? Edit any title by hand.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-play"/></svg></div>
+          <h3>Continue watching</h3>
+          <p>Every video remembers where you stopped. Pick up mid-episode from the Continue Watching row, and progress bars show how far through each title you are.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-check"/></svg></div>
+          <h3>Watched, unwatched, in bulk</h3>
+          <p>Mark one episode or a whole selection as watched. Select several episodes to move or remove them together, with Undo if you change your mind.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-search"/></svg></div>
+          <h3>Search and filters</h3>
+          <p>Search by title, cast member, director, studio or year. Filter by Movies or Shows, Unwatched, In progress, Completed or Has unavailable files, and sort by newest, oldest or A to Z.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg class="icon"><use href="#i-backup"/></svg></div>
+          <h3>Backup and restore</h3>
+          <p>Save your library and watch history to a backup file you control, and restore it later. No cloud account involved.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FOLDERS SPOTLIGHT -->
+  <section id="folders" class="section-alt" aria-labelledby="folders-title">
+    <div class="wrap spotlight">
+      <figure class="ph ph-feature spotlight-media">
+        <figcaption><strong>FEATURE IMAGE · 1200 × 900 px</strong>Show page with a "Can't open folder" banner and Reconnect, or the Add to Library sheet.<br><code>assets/img/folders.png</code></figcaption>
+      </figure>
+      <div>
+        <span class="eyebrow">Standout feature</span>
+        <h2 id="folders-title">Point it at a folder. It keeps up.</h2>
+        <p class="lede">Add a folder once and LocalFlix looks after it: new episodes, moved files, missing ones and folders that go away and come back.</p>
+        <ul class="points">
+          <li><div class="card-icon"><svg class="icon"><use href="#i-folder"/></svg></div><div><h3>Add folder, including subfolders</h3><p>Pick a folder and every video inside it, at any depth, joins your library. Nothing is copied or moved: LocalFlix plays your files where they are.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-refresh"/></svg></div><div><h3>New episodes, found</h3><p>Downloaded the next few episodes? Rescan library folders and they slot into the right show and season.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-alert"/></svg></div><div><h3>Unavailable, not deleted</h3><p>If a video goes missing, it is marked Unavailable and keeps its watch history. If it comes back, it plays again. If the whole folder can't be opened, LocalFlix says so and offers Reconnect folder.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-link"/></svg></div><div><h3>Link a video file yourself</h3><p>For anything LocalFlix can't find on its own, link the right video file to the episode. Folder scans leave manual links alone.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PLAYER -->
+  <section id="player" aria-labelledby="player-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The player</span>
+        <h2 id="player-title">Made for the sofa, the train and one hand.</h2>
+        <p class="lede">A full-screen player with gestures you already know, and a way out when a file won't play.</p>
+      </div>
+      <figure class="ph ph-wide">
+        <figcaption><strong>PLAYER IMAGE · 1920 × 1080 px</strong>Landscape player screenshot with controls visible, or the "Next episode" countdown.<br><code>assets/img/player.png</code></figcaption>
+      </figure>
+      <div class="gestures">
+        <div class="gesture"><svg class="icon"><use href="#i-volume"/></svg><b>Volume</b><span>Drag up or down on the left half.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-sun"/></svg><b>Brightness</b><span>Drag up or down on the right half. Only the player changes, not your phone's setting.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-seek"/></svg><b>Skip</b><span>Double-tap left or right to jump 10 seconds, or use the back 10 and forward 15 buttons.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-next"/></svg><b>Next episode</b><span>An 8-second countdown starts the next episode. Cancel it any time.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-rotate"/></svg><b>Rotate</b><span>Switch between portrait and landscape with one tap.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-play"/></svg><b>Resume</b><span>Opens exactly where you stopped, every time.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-external"/></svg><b>Open in another player</b><span>If your phone can't decode a file, hand it to VLC, MX Player or another app in one tap.</span></div>
+        <div class="gesture"><svg class="icon"><use href="#i-film"/></svg><b>Common formats</b><span>MP4, MKV, AVI, MOV, M4V, WebM and TS files.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. HOW IT WORKS -->
+  <section id="how" class="section-alt" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Getting started</span>
+        <h2 id="how-title">How LocalFlix works.</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Add a folder</h3><p>Choose the folder where your videos live, or pick individual video files.</p></li>
+        <li><h3>LocalFlix sorts it</h3><p>Movies and shows are recognised, seasons and episodes put in order, names tidied.</p></li>
+        <li><span class="optional">Optional</span><h3>Add a TMDB key</h3><p>Paste a free TMDB API key in Settings to fetch posters, descriptions and cast.</p></li>
+        <li><h3>Press play</h3><p>Watch, stop, come back. LocalFlix remembers where you were.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. GALLERY -->
+  <section aria-labelledby="gallery-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">A look inside</span>
+        <h2 id="gallery-title">See LocalFlix in action.</h2>
+      </div>
+      <div class="gallery">
+        <figure><div class="ph ph-phone"><span class="ph-label"><strong>1080 × 2280</strong><code>shot-library.png</code></span></div><figcaption class="shot-caption">Your library</figcaption></figure>
+        <figure><div class="ph ph-phone"><span class="ph-label"><strong>1080 × 2280</strong><code>shot-show.png</code></span></div><figcaption class="shot-caption">Seasons and episodes</figcaption></figure>
+        <figure><div class="ph ph-phone"><span class="ph-label"><strong>1080 × 2280</strong><code>shot-continue.png</code></span></div><figcaption class="shot-caption">Continue watching</figcaption></figure>
+        <figure><div class="ph ph-phone"><span class="ph-label"><strong>1080 × 2280</strong><code>shot-select.png</code></span></div><figcaption class="shot-caption">Select and act in bulk</figcaption></figure>
+        <figure><div class="ph ph-phone"><span class="ph-label"><strong>1080 × 2280</strong><code>shot-add.png</code></span></div><figcaption class="shot-caption">Add a folder</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FREE & PREMIUM -->
+  <section id="pricing" class="section-alt" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Free &amp; Premium</span>
+        <h2 id="pricing-title">Try everything free. Pay once if you love it.</h2>
+        <p class="lede">No subscription, ever. Premium is a one-time unlock for a bigger library.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <div class="plan-name"><div class="card-icon"><svg class="icon"><use href="#i-play"/></svg></div><h3>Free</h3></div>
+          <p class="plan-price">No charge<small>Free download from Google Play</small></p>
+          <ul class="ticks">
+            <li><svg class="icon"><use href="#i-tick"/></svg>Up to 10 videos in your library</li>
+            <li><svg class="icon"><use href="#i-tick"/></svg>Every feature: folders, posters, player, backup</li>
+            <li><svg class="icon"><use href="#i-tick"/></svg>No account, no ads</li>
+          </ul>
+        </article>
+        <article class="plan plan-premium">
+          <div class="plan-name"><div class="card-icon"><svg class="icon"><use href="#i-unlock"/></svg></div><h3>Premium</h3></div>
+          <p class="plan-price">One-time unlock<small>Price shown in Google Play</small></p>
+          <ul class="ticks">
+            <li><svg class="icon"><use href="#i-tick"/></svg>Unlimited videos</li>
+            <li><svg class="icon"><use href="#i-tick"/></svg>Pay once, keep it. Not a subscription</li>
+            <li><svg class="icon"><use href="#i-tick"/></svg>Restore your purchase on reinstall</li>
+          </ul>
+        </article>
+      </div>
+      <p class="plans-note">Over the free limit? Nothing is deleted. Extra videos stay in your library, locked, until you unlock Premium.</p>
+    </div>
+  </section>
+
+  <!-- 9. PRIVACY -->
+  <section id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap spotlight reverse">
+      <figure class="ph ph-square spotlight-media">
+        <figcaption><strong>ILLUSTRATION · 800 × 800 px</strong>A phone with a shield or padlock, in the app's amber and violet.<br><code>assets/img/privacy.png</code></figcaption>
+      </figure>
+      <div>
+        <span class="eyebrow">Privacy first</span>
+        <h2 id="privacy-title">Your videos never leave your phone.</h2>
+        <ul class="points">
+          <li><div class="card-icon"><svg class="icon"><use href="#i-noaccount"/></svg></div><div><h3>No account</h3><p>No sign-up, no email, no login. Open the app and start.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-offline"/></svg></div><div><h3>Works offline</h3><p>Your library and player work without internet. The only optional online step is fetching artwork from TMDB.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-eyeoff"/></svg></div><div><h3>No tracking</h3><p>No analytics, no ads and no profile of what you watch.</p></div></li>
+          <li><div class="card-icon"><svg class="icon"><use href="#i-shield"/></svg></div><div><h3>Your files stay put</h3><p>LocalFlix only reads the folders you choose. Removing something from your library never deletes the video from your phone.</p></div></li>
+        </ul>
+        <p style="margin-top:24px"><a href="privacy.html">Read the privacy policy</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section id="faq" class="section-alt" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Questions</span>
+        <h2 id="faq-title">Good to know.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Is LocalFlix free?</summary>
+          <p>Yes. The free version includes every feature for a library of up to 10 videos. Premium is a one-time purchase that removes the limit. There is no subscription.</p>
+        </details>
+        <details>
+          <summary>Does LocalFlix stream or download films?</summary>
+          <p>No. LocalFlix has no catalogue of its own. It organises and plays video files that are already on your phone.</p>
+        </details>
+        <details>
+          <summary>Which video formats does it play?</summary>
+          <p>LocalFlix adds MP4, MKV, AVI, MOV, M4V, WebM and TS files. Whether a particular file plays depends on what your phone can decode. If it can't, use "Open in another player" to watch it in VLC, MX Player or a similar app.</p>
+        </details>
+        <details>
+          <summary>Do I need a TMDB account?</summary>
+          <p>Only if you want posters and details fetched automatically. TMDB API keys are free. Without one, LocalFlix still sorts and plays everything, and you can add artwork by hand.</p>
+        </details>
+        <details>
+          <summary>What happens if I move or rename a folder?</summary>
+          <p>The affected videos show as Unavailable, with their watch history kept. If the folder itself can't be opened, LocalFlix shows a banner with Reconnect folder: pick the folder's new location and everything is restored.</p>
+        </details>
+        <details>
+          <summary>Does removing something from my library delete the video?</summary>
+          <p>Never. Removing a show, an episode or a movie only removes it from LocalFlix. The video file stays on your phone.</p>
+        </details>
+        <details>
+          <summary>Is there an iPhone version?</summary>
+          <p>Not yet. LocalFlix is on Android first. An iPhone version is planned.</p>
+        </details>
+        <details>
+          <summary>Is Premium a subscription?</summary>
+          <p>No. It is a single purchase through Google Play. If you reinstall, use Restore purchase in Settings.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FINAL CTA -->
+  <section id="download" class="final" aria-labelledby="download-title">
+    <div class="wrap">
+      <img src="assets/img/mark.png" alt="" width="72" height="72">
+      <h2 id="download-title">Give your videos the home they deserve.</h2>
+      <p class="lede" style="margin-top:0">Free on Android. No account, no subscription.</p>
+      <div class="cta-row">
+        <!-- Replace with Google's official "Get it on Google Play" badge once the listing is live. -->
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.localflix.app"><svg class="icon"><use href="#i-download"/></svg>Get it on Google Play</a>
+      </div>
+      <div class="qr">
+        <figure class="ph ph-qr"><figcaption><strong>QR</strong><code>400 × 400</code></figcaption></figure>
+        <span>On a computer?<br>Scan to open LocalFlix on Google Play.<br><code style="font-family:var(--mono);font-size:.75rem">assets/img/qr-play.png</code></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><img src="assets/img/mark.png" alt="" width="30" height="30">LocalFlix</a>
+        <p>Your own videos, organised like a streaming service. Offline, private, yours.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#folders">Folders</a></li>
+          <li><a href="#player">Player</a></li>
+          <li><a href="#pricing">Free &amp; Premium</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get the app</h4>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.localflix.app">Google Play</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      <p>&copy; 2026 LocalFlix. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
