@@ -19,7 +19,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=2026-10-13d">
 </head>
 <body id="top">
 
@@ -115,12 +115,7 @@
 
   <!-- FROM .MKV TO MOVIE NIGHT -->
   <section class="shift" aria-labelledby="shift-title">
-    <!-- Grid areas: desktop = visual left, heading + text right; phone = heading, visual, text. -->
-    <div class="wrap shift-grid">
-      <div class="shift-head">
-        <span class="eyebrow">Finally, some order</span>
-        <h2 id="shift-title" class="display">From <span style="color:#888493">.mkv</span> to<br><em>movie night.</em></h2>
-      </div>
+    <div class="wrap split">
       <div class="file-visual" aria-label="Example: a file name organised into an episode">
         <span class="file-label">On your phone</span>
         <div class="raw-file">Marshalls.S01E03.1080p.WEB.H264-GROUP.mkv</div>
@@ -131,7 +126,9 @@
           <div><strong>Marshalls</strong><small>Season 1 · Episode 3 · 12 min left</small></div>
         </div>
       </div>
-      <div class="shift-body">
+      <div class="shift-copy">
+        <span class="eyebrow">Finally, some order</span>
+        <h2 id="shift-title" class="display">From <span style="color:#888493">.mkv</span> to<br><em>movie night.</em></h2>
         <p class="lede">Release tags, mystery folders, episodes in random order, a gallery app that files them between your screenshots. None of it should stand between you and pressing play.</p>
         <ul class="sparks">
           <li>Recognises movies, shows, seasons and episode numbers, and strips the release junk</li>
@@ -338,36 +335,46 @@
   <section id="download" class="final band" aria-labelledby="download-title">
     <div class="wrap">
       <img class="logo-big" src="assets/img/mark.png" alt="LocalFlix" width="96" height="96">
-      <span class="eyebrow">Coming to Android</span>
+      <span class="eyebrow">Get LocalFlix</span>
       <h2 id="download-title" class="display">Give your videos<br><em>the big-screen feeling.</em></h2>
-      <p class="lede">LocalFlix is in final testing ahead of its Google Play release. The download button goes live here on launch day.</p>
+      <p class="lede">LocalFlix is in final testing for Android. Nothing is available to download yet.</p>
 
-      <div class="stores">
-        <!-- AT LAUNCH, replace this <span> with:
-             <a class="store store-play" href="https://play.google.com/store/apps/details?id=com.localflix.app" rel="noopener">
-               <svg class="icon" aria-hidden="true"><use href="#i-gplay"/></svg>
-               <span><small>Get it on</small><strong>Google Play</strong></span>
-             </a>
-             (Or use Google's official badge image, as Google's brand guidelines prefer.) -->
-        <span class="store store-play is-soon" aria-label="Coming soon to Google Play">
+      <!-- Store switcher (same layout as bill-crunch.com).
+           BEFORE LAUNCH (now): the store controls are <button>s. Selecting one shows that store's
+           QR placeholder on a computer and updates the status line below on every screen size.
+           AT LAUNCH, for each store that is live:
+             1. Change its <button ...> to <a ... href="REAL STORE URL" rel="noopener"> (keep the
+                class, data-qr, aria-pressed and aria-controls), and update its label to
+                "Get it on / Google Play" or "Download on the / App Store".
+                On a phone the link opens the store; on a computer it switches the QR code.
+             2. Replace its QR placeholder with the <img> in the comment next to it.
+             3. Update that store's data-status-* text on #store-status. -->
+      <div class="stores" role="group" aria-label="Choose your store">
+        <button type="button" class="store store-play" data-qr="play" aria-pressed="true" aria-controls="qr-play store-status">
           <svg class="icon" aria-hidden="true"><use href="#i-gplay"/></svg>
           <span><small>Coming soon to</small><strong>Google Play</strong></span>
-        </span>
-        <span class="store store-ios is-soon" aria-label="iPhone version planned">
+        </button>
+        <button type="button" class="store store-ios" data-qr="ios" aria-pressed="false" aria-controls="qr-ios store-status">
           <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
-          <span><small>Planned for</small><strong>iPhone</strong></span>
-        </span>
+          <span><small>Planned for the</small><strong>App Store</strong></span>
+        </button>
       </div>
 
-      <!-- Computer only: hidden on phones, where scanning makes no sense.
-           AT LAUNCH, replace the placeholder with a QR image that points to the Google Play URL above:
-           <img src="assets/img/qr-google-play.png" alt="QR code for LocalFlix on Google Play" width="512" height="512"> -->
       <div class="qr">
-        <div class="qr-box">
-          <figure class="ph ph-qr"><figcaption><strong>QR CODE</strong>512 × 512 px<br><code>qr-google-play.png</code></figcaption></figure>
+        <!-- AT LAUNCH: <img src="assets/img/qr-google-play.png" alt="QR code: LocalFlix on Google Play" width="512" height="512"> -->
+        <div class="qr-box" id="qr-play" data-qr-panel="play">
+          <figure class="ph ph-qr"><figcaption><strong>GOOGLE PLAY QR</strong>Coming at launch<br><code>qr-google-play.png</code><br>512 × 512 px</figcaption></figure>
         </div>
-        <p>On a computer? Scan to download.</p>
+        <!-- AT LAUNCH: <img src="assets/img/qr-app-store.png" alt="QR code: LocalFlix on the App Store" width="512" height="512"> -->
+        <div class="qr-box" id="qr-ios" data-qr-panel="ios" hidden>
+          <figure class="ph ph-qr"><figcaption><strong>APP STORE QR</strong>Not yet confirmed<br><code>qr-app-store.png</code><br>512 × 512 px</figcaption></figure>
+        </div>
       </div>
+
+      <!-- Shown on all screen sizes, so tapping a store on a phone gives visible feedback. -->
+      <p class="store-status" id="store-status" aria-live="polite"
+         data-status-play="Google Play: coming soon. The download link and QR code appear here on launch day."
+         data-status-ios="App Store: an iPhone version is planned but not yet confirmed. Nothing to download yet.">Google Play: coming soon. The download link and QR code appear here on launch day.</p>
     </div>
   </section>
 
@@ -412,6 +419,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js" defer></script>
+<script src="assets/js/site.js?v=2026-10-13d" defer></script>
 </body>
 </html>
