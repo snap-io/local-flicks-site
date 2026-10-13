@@ -202,16 +202,17 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .sparks li::before { content: "\2726"; color: #ffac45; line-height: 1.6; }
 @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 40px; } }
 
-/* "From .mkv to movie night": visual left, heading + text right on desktop;
-   heading, then visual, then text on phones so the example follows its headline. */
-.shift-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "visual head" "visual body"; column-gap: 64px; row-gap: 0; }
-.shift-grid > * { min-width: 0; }
-.shift-head { grid-area: head; align-self: end; }
-.shift-grid .file-visual { grid-area: visual; align-self: center; }
-.shift-body { grid-area: body; align-self: start; }
+/* "From .mkv to movie night", phones only: heading first, then the example, then the text.
+   Desktop keeps the original two-column layout untouched. display: contents lets the
+   heading and text (one wrapper in the HTML) be ordered around the example independently. */
 @media (max-width: 900px) {
-  .shift-grid { grid-template-columns: 1fr; grid-template-areas: "head" "visual" "body"; row-gap: 32px; }
-  .shift-body .lede { margin-top: 0; }
+  .shift .split { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .shift-copy { display: contents; }
+  .shift-copy .eyebrow { order: 1; align-self: flex-start; }
+  .shift-copy .display { order: 2; }
+  .shift .file-visual { order: 3; margin-block: 32px; }
+  .shift-copy .lede { order: 4; margin-top: 0; }
+  .shift-copy .sparks { order: 5; }
 }
 
 /* ── Feature cards ──────────────────────────────────────────────────────── */
@@ -305,25 +306,37 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
 .final .display { font-size: clamp(2.6rem, 1.4rem + 5vw, 5rem); max-width: 16ch; }
 .final .lede { margin-top: 0; text-align: center; }
 .stores { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 10px; }
-.store { display: inline-flex; align-items: center; gap: 12px; min-width: 196px; padding: 11px 22px 11px 18px; border-radius: 14px; text-decoration: none; text-align: left; transition: transform 0.2s, box-shadow 0.2s; }
+.store { display: inline-flex; align-items: center; gap: 12px; min-width: 196px; padding: 11px 22px 11px 18px; border-radius: 14px; border: 2px solid transparent;
+  text-decoration: none; text-align: left; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
 .store .icon { width: 26px; height: 26px; flex: none; }
 .store small { display: block; font-size: 0.7rem; font-weight: 600; opacity: 0.8; line-height: 1.2; }
 .store strong { display: block; font-size: 1.12rem; font-weight: 800; line-height: 1.25; letter-spacing: -0.01em; }
-.store-play { background: #15131b; color: var(--text); border: 2px solid var(--amber); }
+.store-play { background: #15131b; color: var(--text); border-color: #47414e; }
 .store-play .icon { fill: currentColor; stroke: none; }
-.store-ios { background: #f4f2f7; color: #15131b; border: 2px solid #f4f2f7; }
-a.store:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245, 166, 35, 0.22); }
-.store.is-soon { cursor: default; }
-.store-ios.is-soon { opacity: 0.55; }
+.store-ios { background: #f4f2f7; color: #15131b; border-color: #f4f2f7; }
+.store-play:hover { color: var(--text); }
+.store-ios:hover { color: #15131b; }
+.store:hover { transform: translateY(-2px); }
+/* The store whose QR code is showing. */
+.store[aria-pressed="true"] { border-color: var(--amber); box-shadow: 0 10px 30px rgba(245, 166, 35, 0.22); }
+.store:focus-visible { outline: 3px solid var(--amber-soft); outline-offset: 3px; }
 .qr { display: grid; justify-items: center; gap: 12px; margin-top: 12px; }
 .qr-box { width: 168px; height: 168px; padding: 12px; background: #fff; border-radius: 18px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+.qr-box[hidden] { display: none; }
 .qr-box img { display: block; width: 100%; height: 100%; }
 .ph-qr { height: 100%; background: #f1eff5; border-color: #c9c4d2; border-radius: 10px; color: #6d6878; }
 .ph-qr figcaption { padding: 6px; font-size: 0.7rem; }
 .ph-qr strong { color: #3b3644; }
 .ph-qr code { color: #6d6878; font-size: 0.66rem; }
-.qr p { margin: 0; color: var(--muted); font-size: 0.85rem; }
-@media (max-width: 900px), (pointer: coarse) { .qr { display: none; } }
+.store { font: inherit; -webkit-tap-highlight-color: transparent; }
+.store-status { margin: 4px 0 0; max-width: 46ch; color: var(--muted); font-size: 0.88rem; line-height: 1.55; text-align: center; }
+/* Phones: no QR (you can't scan your own screen); the buttons open the store instead. */
+/* Same condition hides the QR and the "selected" outline, so they always agree. */
+@media (max-width: 900px), (pointer: coarse) {
+  .qr { display: none; }
+  .store-play[aria-pressed="true"] { border-color: #47414e; box-shadow: none; }
+  .store-ios[aria-pressed="true"] { border-color: #f4f2f7; box-shadow: none; }
+}
 .logo-big { width: 96px; height: 96px; filter: drop-shadow(0 8px 27px rgba(216, 58, 113, 0.35)); }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
