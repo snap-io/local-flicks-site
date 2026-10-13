@@ -23,6 +23,42 @@
     });
   }
 
+  // ── Store switcher (download section) ───────────────────────────────────
+  // Selecting a store shows its QR code (computers only; the QR is hidden on
+  // phones) and updates the status line (all screen sizes).
+  // Before launch the controls are <button>s, so selecting is all they do.
+  // After launch a live store becomes an <a href="store URL">: on a phone it
+  // opens the store; on a computer it switches the QR code instead.
+  var storeControls = document.querySelectorAll('.store[data-qr]');
+  var qrPanels = document.querySelectorAll('[data-qr-panel]');
+  var storeStatus = document.getElementById('store-status');
+  var qrArea = document.querySelector('.qr');
+  // Ask the page whether the QR area is actually shown, so this always agrees with the CSS.
+  var qrIsShown = function () { return !!qrArea && getComputedStyle(qrArea).display !== 'none'; };
+
+  var selectStore = function (key) {
+    storeControls.forEach(function (c) {
+      c.setAttribute('aria-pressed', c.dataset.qr === key ? 'true' : 'false');
+    });
+    qrPanels.forEach(function (p) {
+      p.hidden = p.dataset.qrPanel !== key;
+    });
+    if (storeStatus) {
+      var text = storeStatus.getAttribute('data-status-' + key);
+      if (text) storeStatus.textContent = text;
+    }
+  };
+
+  storeControls.forEach(function (control) {
+    control.addEventListener('click', function (e) {
+      var isStoreLink = control.tagName === 'A' && control.getAttribute('href') &&
+        control.getAttribute('href').charAt(0) !== '#';
+      if (isStoreLink && !qrIsShown()) return; // phone after launch: open the store
+      e.preventDefault();
+      selectStore(control.dataset.qr);
+    });
+  });
+
   // ── Email reveal ────────────────────────────────────────────────────────
   // The address is never in the page source: it is stored reversed and split
   // across two attributes, and only assembled after a real click. This stops
