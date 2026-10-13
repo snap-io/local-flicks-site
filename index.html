@@ -46,6 +46,8 @@
   <symbol id="i-rotate" viewBox="0 0 24 24"><rect x="8" y="3" width="10" height="16" rx="2"/><path d="M4 13a8 8 0 0 0 5 7"/><path d="M4 17v-4h4"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-gplay" viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></symbol>
 </svg>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -58,14 +60,10 @@
     </button>
     <nav id="site-nav" class="nav" aria-label="Main">
       <a href="#features">Features</a>
-      <a href="#folders">Your folders</a>
-      <a href="#player">Player</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Free &amp; Premium</a>
       <a href="#faq">FAQ</a>
       <a href="support.html">Support</a>
-      <!-- At launch: change to the Google Play link. -->
-      <a class="pill-soon" href="#download"><span class="dot"></span>Android · Coming soon</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="btn btn-nav" href="#download">Download</a>
     </nav>
   </div>
 </header>
@@ -117,7 +115,12 @@
 
   <!-- FROM .MKV TO MOVIE NIGHT -->
   <section class="shift" aria-labelledby="shift-title">
-    <div class="wrap split">
+    <!-- Grid areas: desktop = visual left, heading + text right; phone = heading, visual, text. -->
+    <div class="wrap shift-grid">
+      <div class="shift-head">
+        <span class="eyebrow">Finally, some order</span>
+        <h2 id="shift-title" class="display">From <span style="color:#888493">.mkv</span> to<br><em>movie night.</em></h2>
+      </div>
       <div class="file-visual" aria-label="Example: a file name organised into an episode">
         <span class="file-label">On your phone</span>
         <div class="raw-file">Marshalls.S01E03.1080p.WEB.H264-GROUP.mkv</div>
@@ -128,9 +131,7 @@
           <div><strong>Marshalls</strong><small>Season 1 · Episode 3 · 12 min left</small></div>
         </div>
       </div>
-      <div>
-        <span class="eyebrow">Finally, some order</span>
-        <h2 id="shift-title" class="display">From <span style="color:#888493">.mkv</span> to<br><em>movie night.</em></h2>
+      <div class="shift-body">
         <p class="lede">Release tags, mystery folders, episodes in random order, a gallery app that files them between your screenshots. None of it should stand between you and pressing play.</p>
         <ul class="sparks">
           <li>Recognises movies, shows, seasons and episode numbers, and strips the release junk</li>
@@ -339,10 +340,34 @@
       <img class="logo-big" src="assets/img/mark.png" alt="LocalFlix" width="96" height="96">
       <span class="eyebrow">Coming to Android</span>
       <h2 id="download-title" class="display">Give your videos<br><em>the big-screen feeling.</em></h2>
-      <p class="lede">LocalFlix is in final testing ahead of its Google Play release. The download button lands here the day it's live.</p>
-      <!-- At launch: replace this pill with Google's official "Get it on Google Play" badge linking to
-           https://play.google.com/store/apps/details?id=com.localflix.app -->
-      <span class="pill-soon"><span class="dot"></span>Android release coming soon</span>
+      <p class="lede">LocalFlix is in final testing ahead of its Google Play release. The download button goes live here on launch day.</p>
+
+      <div class="stores">
+        <!-- AT LAUNCH, replace this <span> with:
+             <a class="store store-play" href="https://play.google.com/store/apps/details?id=com.localflix.app" rel="noopener">
+               <svg class="icon" aria-hidden="true"><use href="#i-gplay"/></svg>
+               <span><small>Get it on</small><strong>Google Play</strong></span>
+             </a>
+             (Or use Google's official badge image, as Google's brand guidelines prefer.) -->
+        <span class="store store-play is-soon" aria-label="Coming soon to Google Play">
+          <svg class="icon" aria-hidden="true"><use href="#i-gplay"/></svg>
+          <span><small>Coming soon to</small><strong>Google Play</strong></span>
+        </span>
+        <span class="store store-ios is-soon" aria-label="iPhone version planned">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          <span><small>Planned for</small><strong>iPhone</strong></span>
+        </span>
+      </div>
+
+      <!-- Computer only: hidden on phones, where scanning makes no sense.
+           AT LAUNCH, replace the placeholder with a QR image that points to the Google Play URL above:
+           <img src="assets/img/qr-google-play.png" alt="QR code for LocalFlix on Google Play" width="512" height="512"> -->
+      <div class="qr">
+        <div class="qr-box">
+          <figure class="ph ph-qr"><figcaption><strong>QR CODE</strong>512 × 512 px<br><code>qr-google-play.png</code></figcaption></figure>
+        </div>
+        <p>On a computer? Scan to download.</p>
+      </div>
     </div>
   </section>
 
@@ -370,7 +395,7 @@
         <ul>
           <li><a href="support.html">Support</a></li>
           <li><a href="privacy.html">Privacy policy</a></li>
-          <li><a href="mailto:snap.appdev@proton.me">Contact</a></li>
+          <li><a href="support.html#contact">Contact</a></li>
         </ul>
       </div>
       <div>
