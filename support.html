@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://local-flicks.com/support.html">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=2026-10-13d">
+  <link rel="stylesheet" href="assets/css/site.css?v=2026-10-14b">
 </head>
 <body id="top">
 
@@ -86,7 +86,7 @@
             </ul>
           </li>
           <li><strong>Review what LocalFlix found.</strong> The <strong>Confirm import</strong> screen shows the shows and movies it recognised. Untick anything you don't want, then tap <strong>Add</strong>. Names LocalFlix wasn't sure about are flagged so you can check them.</li>
-          <li><strong>Optional: add a TMDB key</strong> for posters, descriptions and cast. See <a href="#tmdb">Posters and details</a>.</li>
+          <li><strong>Posters and details arrive automatically.</strong> When you're online, LocalFlix looks up posters, descriptions and cast for the titles you added. No setup needed. See <a href="#tmdb">Posters and details</a>.</li>
           <li><strong>Press play.</strong> LocalFlix remembers where you stop in every video.</li>
         </ol>
         <div class="short" style="margin-top:16px"><p><strong>Tip:</strong> Put each show in its own folder inside one main folder (for example <code>Videos/TV/Marshalls/</code>) and add the main folder once. Everything you download into it later can be picked up with <strong>Rescan library folders</strong>.</p></div>
@@ -131,7 +131,7 @@
         <p>A movie has one video file, so its ⋮ menu combines both: Match with TMDB, Edit details, Organise movie, Mark as watched, Link video file… (when unavailable), Use folder's copy (when linked manually) and Remove movie from library.</p>
         <h3>Settings</h3>
         <ul>
-          <li><strong>Metadata (TMDB)</strong>: add your key, and <strong>Match all with TMDB</strong>.</li>
+          <li><strong>Metadata (TMDB)</strong>: metadata works automatically. <strong>Match all with TMDB</strong> fills in anything not matched yet, and <strong>Use my own TMDB key</strong> is an optional advanced setting.</li>
           <li><strong>Library</strong>: Clean up titles, Rescan library folders, Clear library; folders LocalFlix can't open (with Reconnect); Remove unavailable episodes and movies.</li>
           <li><strong>Storage</strong>: counts of titles, files and unavailable files.</li>
           <li><strong>Backup &amp; restore</strong>: Back up library, Restore from backup.</li>
@@ -164,15 +164,7 @@
 
       <section id="tmdb">
         <h2>Posters and details (TMDB)</h2>
-        <p>LocalFlix can fetch posters, backdrops, descriptions and cast from The Movie Database (TMDB). This needs your own TMDB API key, which is free. Without one, everything else still works.</p>
-        <h3>Getting a key</h3>
-        <ol>
-          <li>Open <strong>Settings → Metadata (TMDB)</strong> and tap <strong>Open TMDB</strong>, or go to themoviedb.org.</li>
-          <li>Sign in, or create a free TMDB account.</li>
-          <li>Open your account menu → <strong>Settings → API</strong>, request a new key and choose <strong>Developer</strong>.</li>
-          <li>The form asks for an app website. It isn't checked, so anything works (even <code>http://localhost</code>), and the key is issued instantly.</li>
-          <li>Copy the <strong>API Key (v3 auth)</strong> value, paste it into LocalFlix and tap <strong>Save</strong>.</li>
-        </ol>
+        <p>LocalFlix automatically fetches posters, backdrops, descriptions and cast from The Movie Database (TMDB) when you're online: after you add videos, and whenever you use the matching options below. No API key setup is needed. Without internet, everything else still works, and artwork already saved keeps showing.</p>
         <h3>Matching</h3>
         <ul>
           <li><strong>Settings → Metadata (TMDB) → Match all with TMDB</strong> looks up every title that doesn't have artwork yet.</li>
@@ -181,6 +173,16 @@
         </ul>
         <h3>Editing details yourself</h3>
         <p>Choose <strong>Edit details</strong> in a title's ⋮ menu to change its name or description, or pick your own poster and backdrop images. Your edits are kept.</p>
+        <h3>Advanced: use your own TMDB API key</h3>
+        <p>LocalFlix normally uses its built-in TMDB connection, so most people never need this. If you prefer, you can enter your own free TMDB key. Your key then takes priority over the built-in connection. Clearing it returns LocalFlix to automatic metadata lookup.</p>
+        <ol>
+          <li>Open <strong>Settings → Metadata (TMDB) → Use my own TMDB key</strong> and tap <strong>Open TMDB</strong>, or go to themoviedb.org.</li>
+          <li>Sign in, or create a free TMDB account.</li>
+          <li>Open your account menu → <strong>Settings → API</strong>, request a new key and choose <strong>Developer</strong>.</li>
+          <li>The form asks for an app website. It isn't checked, so anything works (even <code>http://localhost</code>), and the key is issued instantly.</li>
+          <li>Copy the <strong>API Key (v3 auth)</strong> value, paste it into LocalFlix and tap <strong>Save</strong>.</li>
+        </ol>
+        <p>To go back to automatic metadata, open the same screen, clear the key field and tap <strong>Save</strong>.</p>
       </section>
 
       <section id="organise">
@@ -282,7 +284,7 @@
 
       <section id="privacy">
         <h2>Privacy</h2>
-        <p>LocalFlix collects no personal data. There's no account, no analytics, no ads and no tracking. Your library, watch history and video files stay on your phone. The app only goes online to fetch artwork from TMDB (if you've added a key) and to handle a Premium purchase through Google Play. Read the full <a href="privacy.html">privacy policy</a>.</p>
+        <p>LocalFlix collects no personal data. There's no account, no analytics, no ads and no tracking. Your library, watch history and video files stay on your phone. The app goes online to look up posters and details from TMDB (it sends title names and years read from your file names, never your videos) and to handle a Premium purchase through Google Play. Read the full <a href="privacy.html">privacy policy</a>.</p>
       </section>
 
       <section id="faq">
@@ -296,7 +298,7 @@
         <h3>Reconnect says "Pick the folder that holds all of them".</h3>
         <p>You picked a folder that's missing some of the videos that came from the original folder. Pick the main folder you first added, the one that contains all of those shows and movies.</p>
         <h3>Why isn't there a poster?</h3>
-        <p>Posters come from TMDB and need a TMDB key. Add one in <strong>Settings → Metadata (TMDB)</strong>, then run <strong>Match all with TMDB</strong>. If the wrong poster appears, use <strong>Re-match with TMDB</strong> or <strong>Edit details</strong>.</p>
+        <p>Posters come from TMDB and are looked up automatically when you're online. If a title has none, check your connection and run <strong>Settings → Metadata (TMDB) → Match all with TMDB</strong>. If TMDB can't find the title, correct its name with <strong>Edit details</strong> and try <strong>Match with TMDB</strong> again, or add your own poster. If you've saved your own TMDB key and posters stop appearing, your key may no longer be valid: clear it to return to automatic metadata. If the wrong poster appears, use <strong>Re-match with TMDB</strong> or <strong>Edit details</strong>.</p>
         <h3>A video plays in another app but not in LocalFlix.</h3>
         <p>Your phone's built-in decoders don't support that file. Use <strong>Open in another player</strong> from the error screen.</p>
         <h3>Does removing a title delete my files?</h3>

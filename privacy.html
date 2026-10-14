@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://local-flicks.com/privacy.html">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=2026-10-13d">
+  <link rel="stylesheet" href="assets/css/site.css?v=2026-10-14b">
 </head>
 <body id="top">
 
@@ -40,7 +40,7 @@
   <div class="wrap doc-hero">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="doc-meta">Last updated: 12 October 2026 · Applies to the LocalFlix Android app and local-flicks.com</p>
+    <p class="doc-meta">Last updated: 14 October 2026 · Applies to the LocalFlix Android app and local-flicks.com</p>
   </div>
 
   <div class="wrap doc-layout">
@@ -66,7 +66,7 @@
 
     <article class="doc">
       <div class="short">
-        <p><strong>Short version:</strong> LocalFlix does not collect, receive or sell any personal data. There is no account, no analytics, no advertising and no tracking. Your library, watch history and video files stay on your phone. The app only goes online to fetch artwork from TMDB (if you choose to) and to handle a Premium purchase through Google Play.</p>
+        <p><strong>Short version:</strong> LocalFlix does not collect, receive or sell any personal data. There is no account, no analytics, no advertising and no tracking. Your library, watch history and video files stay on your phone. To show posters and details, the app automatically sends title names and years, read from your file names, to The Movie Database (TMDB), which also sees your device's IP address. It also goes online to handle a Premium purchase through Google Play.</p>
       </div>
 
       <section id="who">
@@ -82,8 +82,8 @@
         <ul>
           <li>Your library: titles, seasons and episodes, and the names and locations of the video files you add.</li>
           <li>Watch history: playback positions and watched or unwatched status.</li>
-          <li>Details and artwork fetched from TMDB, if you use that feature, including cached poster, backdrop and cast images.</li>
-          <li>Your TMDB API key, if you add one.</li>
+          <li>Details and artwork fetched from TMDB, including cached poster, backdrop and cast images.</li>
+          <li>Your personal TMDB API key, if you choose to add one.</li>
           <li>Your settings, such as library filters and sort order, and whether you own Premium.</li>
         </ul>
       </section>
@@ -92,7 +92,7 @@
         <h2>3. Where your data lives</h2>
         <p>Everything listed above is stored in the app's private storage on your device, in a local database and a small number of local files. Other apps cannot read it.</p>
         <ul>
-          <li>Your TMDB API key is kept in Android's encrypted storage.</li>
+          <li>A personal TMDB API key, if you add one, is kept in Android's encrypted storage. LocalFlix's built-in TMDB connection key is part of the app itself, not your data.</li>
           <li>LocalFlix opts out of Android's automatic cloud backup, so your library is not copied to a Google account by the app.</li>
           <li>Nothing is synchronised to any server.</li>
         </ul>
@@ -110,9 +110,11 @@
 
       <section id="internet">
         <h2>5. Internet access</h2>
-        <p>Your library and the player work without an internet connection. The app connects to the internet in only two situations:</p>
-        <h3>TMDB artwork and details (optional)</h3>
-        <p>If you add your own TMDB API key, LocalFlix asks The Movie Database (TMDB) for posters, descriptions and cast. Each request contains the <strong>title name and year</strong> that LocalFlix read from your file name, plus your API key. Artwork is then downloaded from TMDB's image servers and saved on your phone. As with any website, TMDB can see your device's IP address when it receives these requests. TMDB's handling of that information is covered by the <a href="https://www.themoviedb.org/privacy-policy" rel="noopener">TMDB privacy policy</a>. If you never add a TMDB key, LocalFlix never contacts TMDB.</p>
+        <p>Browsing your library and playing videos work without an internet connection. The app connects to the internet in only two situations:</p>
+        <h3>TMDB artwork and details (automatic)</h3>
+        <p>When internet access is available, LocalFlix automatically asks The Movie Database (TMDB) for posters, descriptions and cast whenever titles are matched: after you add videos, when you use <strong>Match all with TMDB</strong> or <strong>Match with TMDB</strong>, and after you save a personal TMDB key. Each search request contains the <strong>title name and year</strong> that LocalFlix read from your file name, plus an API key: LocalFlix's built-in key, or your personal key if you have saved one. Artwork is then downloaded from TMDB's image servers and saved on your phone. As with any website, TMDB and its image servers can see your device's IP address when they receive these requests. TMDB's handling of that information is covered by the <a href="https://www.themoviedb.org/privacy-policy" rel="noopener">TMDB privacy policy</a>.</p>
+        <p>Your video files are never uploaded. Your library records and watch history stay on your phone and are not synchronised to any LocalFlix server.</p>
+        <p>You can optionally save your own TMDB API key in the app. It is kept in Android's encrypted storage and takes priority over the built-in connection. Clearing it returns LocalFlix to its built-in connection.</p>
         <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
         <h3>Google Play purchases</h3>
         <p>Buying or restoring Premium goes through Google Play Billing (see section 6).</p>
@@ -138,7 +140,7 @@
       <section id="permissions">
         <h2>8. Permissions</h2>
         <ul>
-          <li><strong>Internet:</strong> for optional TMDB artwork and for Google Play purchases.</li>
+          <li><strong>Internet:</strong> for automatic TMDB posters and details, and for Google Play purchases.</li>
           <li><strong>Google Play Billing:</strong> to buy and restore Premium.</li>
           <li><strong>Folder and file access:</strong> granted through Android's file picker, only for the folders and files you choose.</li>
         </ul>
@@ -147,7 +149,7 @@
 
       <section id="backup">
         <h2>9. Backup and restore</h2>
-        <p>You can save a backup of your library to a folder you choose. The backup file contains your library, including the names and locations of your video files, and your watch history. It does not contain the videos themselves or your TMDB API key.</p>
+        <p>You can save a backup of your library to a folder you choose. The backup file contains your library, including the names and locations of your video files, and your watch history. It does not contain the videos themselves or any TMDB API key.</p>
         <p>The backup is a plain file that you control. It is not encrypted, so keep it somewhere you trust. Once saved, it is outside LocalFlix's control.</p>
       </section>
 
@@ -161,7 +163,7 @@
         <p>Because we hold no data about you, there is nothing for us to access, correct, export or delete on our side. Everything is on your device and under your control:</p>
         <ul>
           <li><strong>Settings → Clear library</strong> removes your library and watch history from the app. Your video files stay on your device.</li>
-          <li>Uninstalling LocalFlix removes everything the app stored, including your TMDB key and cached artwork.</li>
+          <li>Uninstalling LocalFlix removes everything the app stored, including any personal TMDB key and cached artwork.</li>
           <li>Folder access can be withdrawn at any time in Android's settings.</li>
         </ul>
         <p>For information held by TMDB or Google, please contact them directly using the policies linked above.</p>
