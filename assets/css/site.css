@@ -47,6 +47,8 @@ body {
 }
 ::selection { background: var(--amber); color: var(--bg); }
 img, svg { display: block; max-width: 100%; }
+/* Keep images in proportion when max-width shrinks them below their width/height attributes. */
+img { height: auto; }
 a { color: var(--amber); text-underline-offset: 3px; }
 a:hover { color: #ffbe4d; }
 :focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; border-radius: 6px; }
